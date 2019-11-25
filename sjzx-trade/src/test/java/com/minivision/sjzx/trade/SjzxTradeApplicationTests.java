@@ -11,7 +11,7 @@ public class SjzxTradeApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		“111111111111111111111”
+		System.out.print("this is dev");
 	}
 
 }

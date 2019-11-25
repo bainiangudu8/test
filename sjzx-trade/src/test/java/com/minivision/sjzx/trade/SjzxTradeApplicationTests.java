@@ -11,7 +11,7 @@ public class SjzxTradeApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		System.out.print("this is dev");
+		System.out.print("this is master");
 	}
 
 }

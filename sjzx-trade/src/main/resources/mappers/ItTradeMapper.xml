@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.minivision.sjzx.trade.dao.ItTradeDao">
+
+    <select id="findByFirstCodeOrName" parameterType="java.util.Map" resultType="java.util.Map">
+        SELECT distinct(zy.zy_second),zy.zy_first,zy.zy_first_code,zy.zy_second_code FROM zy_it zy <!--where zy.zy_first_code=#{code}-->
+        <where>
+            <if test="code!=null and code!=''">
+                and zy.zy_first_code=#{code}
+            </if>
+            <if test="name!=null and name!=''">
+                and zy.zy_first=#{name}
+            </if>
+        </where>
+    </select>
+
+    <select id="findBysecondCodeOrName" parameterType="java.util.Map" resultType="java.util.Map">
+        SELECT * FROM zy_it zy
+        <where>
+            <if test="code!=null and code!=''">
+                and zy.zy_second_code=#{code}
+            </if>
+            <if test="name!=null and name!=''">
+                and zy.zy_second=#{name}
+            </if>
+        </where>
+    </select>
+
+    <select id="findBythreeCodeOrName" parameterType="java.util.Map" resultType="java.util.Map">
+        SELECT * FROM zy_it zy
+        <where>
+            <if test="code!=null and code!=''">
+                and zy.zy_three_code=#{code}
+            </if>
+            <if test="name!=null and name!=''">
+                and zy.zy_three=#{name}
+            </if>
+        </where>
+    </select>
+
+    <select id="listWithIt" resultType="java.util.Map">
+        SELECT * FROM zy_it
+    </select>
+</mapper>
